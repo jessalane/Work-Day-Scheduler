@@ -9,4 +9,4 @@ The following is a picture of what the website should look like when opened in a
 
 ![This is a screenshot image](./Assets/images/scheduler%20screenshot.png)
 
-The following is a link to [the deployed code]([deployed link](LINK TO COME)).
+The following is a link to [the deployed code]([deployed link](https://jessalane.github.io/Work-Day-Scheduler/)).
