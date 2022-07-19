@@ -57,7 +57,7 @@ function pullStorage() {
     // gets info from timblock and loops 
     $('.time-block').each(function() {
         var pullID = $(this).attr('id');
-        $('#' + pullID + ' textarea').text(localStorage.getItem(moment().format('DMMM[-]YY[-]') + pullID));
+        $('#' + pullID + ' textarea').text(localStorage.getItem(moment().format('DMMM[-]YY[-hr-]') + pullID));
     });
 }
 
