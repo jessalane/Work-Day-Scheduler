@@ -19,19 +19,21 @@ function init() {
 // set the past / present / future classes based on time
 function setClass() {
     $('.time-block').each(function() {
-        var hourId = parseInt($(this).attr('id').split('-')[1]);
+        var hourId = parseInt($(this).attr('id'));
         var currentHr = moment().format('H');
 
-        $(this).removeClass("past present future");
+        $(this).removeClass('past');
+        $(this).removeClass('present');
+        $(this).removeClass('future');
 
-        if (hourId < currentHr) {
-            $(this).addClass("past");
+        if (hourId > currentHr) {
+            $(this).addClass('future');
         } 
         else if (hourId == currentHr) {
-            $(this).addClass("present");
+            $(this).addClass('present');
         } 
         else {
-            $(this).addClass("future");
+            $(this).addClass('past');
         }
     })
 }
@@ -39,7 +41,7 @@ function setClass() {
 // sets text area to local storage
 function setStorage() {
     var setID = $(this).parent().attr('id');
-    localStorage.setItem(moment().format('DMMM[-]YY[-]') + setID, $('#' + setID + ' textarea').val());
+    localStorage.setItem(moment().format('DMMM[-]YY[-hr-]') + setID, $('#' + setID + ' textarea').val());
 }
 
 //pulls objects from local storage
@@ -53,9 +55,9 @@ function setStorage() {
 // pulls objects from local storage and sets to the right textarea
 function pullStorage() {
     // gets info from timblock and loops 
-    $(".time-block").each(function() {
-        var pullID = $(this).attr("id");
-        $("#" + pullID + " textarea").text(localStorage.getItem(moment().format("DMMM[-]YY[-]") + pullID));
+    $('.time-block').each(function() {
+        var pullID = $(this).attr('id');
+        $('#' + pullID + ' textarea').text(localStorage.getItem(moment().format('DMMM[-]YY[-]') + pullID));
     });
 }
 
