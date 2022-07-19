@@ -44,14 +44,6 @@ function setStorage() {
     localStorage.setItem(moment().format('DMMM[-]YY[-hr-]') + setID, $('#' + setID + ' textarea').val());
 }
 
-//pulls objects from local storage
-// function pullStorage() {
-//     $('.time-block').each(function(){
-//         var pullID = $(this).attr('id');
-//         $('#' + pullID + ' textarea').text(localstorage.getItem(moment().format('DMMM[-]YY[-]')+ pullID));
-//     });
-// }
-
 // pulls objects from local storage and sets to the right textarea
 function pullStorage() {
     // gets info from timblock and loops 
